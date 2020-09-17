@@ -1,0 +1,48 @@
+---
+title: "Ex1b"
+author: "Marina Panteli"
+date: "17/09/2020"
+output: html_document
+---
+
+
+## R Markdown
+
+Sampling 100 values from a log-normal distribution with mu=1, sigma=0.25.
+
+```{r Sampling}
+Values<-rlnorm(100, meanlog=1, sdlog=0.25)
+```
+
+## Histograms
+
+Creating histograms of the distribution and the distribution on the log scale:
+
+```{r Histograms}
+hist(Values)
+
+#df_val <- as.data.frame(Values)
+#df_log <- log(df_val)
+library("ggplot2")
+qplot(log(Values))+scale_x_log10()
+
+```
+
+## Mean and Variance
+
+
+```{r mean and variance}
+m_v <- mean(Values)
+v_v <- var(Values)
+
+```
+The mean value is:
+```{r mean, echo=FALSE}
+m_v 
+
+```
+The variance is:
+```{r variance, echo=FALSE}
+
+v_v 
+```
